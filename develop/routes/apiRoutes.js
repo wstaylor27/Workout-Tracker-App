@@ -1,9 +1,20 @@
 const router = require("express").Router();
-const Workout = require("../models/workoutModel");
+const Workout = require("../../models/workout");
 
-router.get("/exercise", (req, res) => {
-  db.Workout.find({})
+//getLastWorkout function in api.js
+router.get("/", ({ body }, res) => {
+  Workout.find({})
+    .sort({ _id: -1 })
+    .limit(1)
     .then((dbWorkout) => {
+      dbWorkout.forEach((workout) => {
+        let total = 0;
+        workout.exercises.forEach((exercise) => {
+          total += exercise.duration;
+        });
+        workout.totalDuration = total;
+      });
+      console.log(dbWorkout[0].exercises);
       res.json(dbWorkout);
     })
     .catch((err) => {
@@ -11,35 +22,47 @@ router.get("/exercise", (req, res) => {
     });
 });
 
-router.post("/api/workout", ({ body }, res) => {
-  Workout.create(body)
-    .then((dbTransaction) => {
-      res.json(dbTransaction);
+//addExercise function in api.js
+router.put("/:id", ({ body, params }, res) => {
+  Workout.findOneAndUpdate(
+    { _id: params.id },
+    {
+      $push: { exercises: body },
+      $inc: { totalDuration: body.duration },
+    },
+    { new: true }
+  )
+    .then((dbWorkout) => {
+      console.log(dbWorkout);
+      res.json(dbWorkout);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.json(err);
     });
 });
 
-router.post("/api/workout/bulk", ({ body }, res) => {
-  Workout.insertMany(body)
-    .then((dbworkout) => {
-      res.json(dbworkout);
+//createWorkout function in api.js
+router.post("/", ({ body }, res) => {
+  console.log("hello");
+  Workout.create({})
+    .then((dbWorkouts) => {
+      res.json(dbWorkouts);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.json(err);
     });
 });
 
-router.get("/api/workout", (req, res) => {
-  workout
-    .find({})
-    .sort({ date: -1 })
-    .then((dbworkout) => {
-      res.json(dbworkout);
+//getWorkoutsInRange function on api.js
+router.get("/range", (req, res) => {
+  Workout.find({})
+    .limit(7)
+    .then((dbWorkouts) => {
+      console.log(dbWorkouts);
+      res.json(dbWorkouts);
     })
     .catch((err) => {
-      res.status(400).json(err);
+      res.json(err);
     });
 });
 
