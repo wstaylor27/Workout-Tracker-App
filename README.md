@@ -1,8 +1,8 @@
 # Workout-Tracker-App
 
-## Link to Video
+## Link to Site
 
-https://drive.google.com/file/d/1JABk2nzyhBtzTcRnY6nlZdfIrwCPtYiq/view?usp=sharing
+https://powerful-ridge-40625.herokuapp.com/
 
 ## Table of Contents
 
@@ -16,7 +16,15 @@ https://drive.google.com/file/d/1JABk2nzyhBtzTcRnY6nlZdfIrwCPtYiq/view?usp=shari
 
 ## Description:
 
-This repo involved creating an internet retail, aka e-commerce. I must include categories, products, and tags.
+This repo involved creating a workout tracker. The user should be able to:
+
+- Add exercises to the most recent workout plan.
+
+- Add new exercises to a new workout plan.
+
+- View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+
+- View the total duration of each workout from the past seven workouts on the `stats` page.
 
 ## Installation:
 
