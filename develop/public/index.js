@@ -1,7 +1,3 @@
-module.exports = {
-  Workout: require("../models/workoutModel"),
-};
-
 init();
 
 async function init() {
