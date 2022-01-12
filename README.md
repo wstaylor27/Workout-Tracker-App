@@ -2,7 +2,7 @@
 
 ## Link to Site
 
-https://budget-tracker-22.herokuapp.com/
+https://powerful-ridge-40625.herokuapp.com/
 
 ## Table of Contents
 
@@ -16,25 +16,23 @@ https://budget-tracker-22.herokuapp.com/
 
 ## Description:
 
-This repo involved creating a progessive budget tracker. The user should be able to:
+This repo involved creating a workout tracker. The user should be able to:
 
--Enter deposits offline
+- Add exercises to the most recent workout plan.
 
--Enter expenses offline
+- Add new exercises to a new workout plan.
 
-When brought back online:
+- View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
 
- -Offline entries should be added to tracker.
- 
+- View the total duration of each workout from the past seven workouts on the `stats` page.
+
 ## Installation:
 
 The developer must install express and MongoDB in order for this repo to function.
 
 ## Usage:
 
-AS AN avid traveller
-I WANT to be able to track my withdrawals and deposits with or without a data/internet connection
-SO THAT my account balance is accurate when I am traveling
+As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
 
 ## License:
 
